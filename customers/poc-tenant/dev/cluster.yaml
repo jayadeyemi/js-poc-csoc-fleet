@@ -1,0 +1,35 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeCluster
+metadata:
+  name: poc-tenant-dev
+  namespace: spokeclusters
+spec:
+  environment: dev
+  provider: openstack
+  infrastructure:
+    cloudName: openstack
+    imageName: ubuntu-2204-kube-v1.29.3
+    sshKeyName: csoc-poc-key        # keypair registered in Jetstream2 — update before deploying
+    externalNetwork: public
+    dnsNameserver: "8.8.8.8"
+  kubernetes:
+    version: v1.29.3
+    nodeClass: general              # m3.medium workers
+    minNodes: 2
+    maxNodes: 4
+    podCIDR: "192.168.0.0/16"
+    serviceCIDR: "10.96.0.0/12"
+  controlPlane:
+    count: 1
+    flavor: m3.small
+  network:
+    connectivity: public
+  capabilities:
+    security: false
+    observability: false
+  registration:
+    labels:
+      csoc.js2.org/customer: poc-tenant
+      csoc.js2.org/environment: dev
+      csoc.js2.org/ownership: csoc
+      csoc.js2.org/hello-csoc: enabled
