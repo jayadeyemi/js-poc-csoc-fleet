@@ -8,12 +8,12 @@ spec:
   provider: openstack
   infrastructure:
     cloudName: openstack
-    imageName: ubuntu-2204-kube-v1.29.3
-    sshKeyName: csoc-poc-key        # keypair registered in Jetstream2 — update before deploying
-    externalNetwork: public
+    imageID: 18895dd1-6e94-482b-9a62-9573328c7429
+    sshKeyName: jetstream-CSOC-POC
+    externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
     dnsNameserver: "8.8.8.8"
   kubernetes:
-    version: v1.29.3
+    version: v1.34.8
     nodeClass: general              # m3.medium workers
     minNodes: 2
     maxNodes: 4
@@ -28,6 +28,7 @@ spec:
     security: false
     observability: false
   registration:
+    enabled: true
     labels:
       csoc.js2.org/customer: poc-tenant
       csoc.js2.org/environment: dev

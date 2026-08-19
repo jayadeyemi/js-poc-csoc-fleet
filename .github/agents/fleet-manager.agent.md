@@ -41,7 +41,7 @@ spec:
   environment: <dev|staging|prod>
   provider: openstack
   kubernetes:
-    version: "1.29"
+    version: v1.34.8
     nodeClass: general                  # general | highmem | gpu
     minNodes: 2
     maxNodes: 5
