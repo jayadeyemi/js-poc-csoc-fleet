@@ -34,8 +34,13 @@ metadata:
 spec:
   environment: <dev|staging|prod>
   provider: openstack
+  infrastructure:
+    cloudName: openstack
+    imageID: 18895dd1-6e94-482b-9a62-9573328c7429
+    sshKeyName: jetstream-CSOC-POC
+    externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
   kubernetes:
-    version: "1.29"
+    version: v1.34.8
     nodeClass: general
     minNodes: 2
     maxNodes: 5
@@ -45,6 +50,7 @@ spec:
     security: false
     observability: false
   registration:
+    enabled: true
     labels:
       csoc.js2.org/customer: <customer-id>
       csoc.js2.org/environment: <env>
@@ -76,7 +82,9 @@ Argo CD ApplicationSets react to these labels on the registered cluster secret:
 | `csoc.js2.org/observability: enabled` | Triggers observability ApplicationSet |
 | `csoc.js2.org/gen3: enabled` | Triggers Gen3 app deployment |
 
-To enable a capability for a cluster, add the label in `registration.labels` in `cluster.yaml` **and** ensure the corresponding app exists in `js-poc-csoc-app-catalog`.
+To enable a capability, set its boolean in `spec.capabilities`; registration
+reconciles the matching Argo cluster label. Ensure the corresponding catalog
+package exists.
 
 ## Ownership modes
 
