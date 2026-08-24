@@ -12,6 +12,7 @@ spec:
     sshKeyName: jetstream-CSOC-POC
     externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
     dnsNameserver: "8.8.8.8"
+    nodeCIDR: "10.2.0.0/24"
   kubernetes:
     version: v1.34.8
     nodeClass: general              # m3.medium workers
