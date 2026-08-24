@@ -48,6 +48,7 @@ spec:
     nodeCIDR: <unique RFC1918 CIDR>
     dnsNameserver: 8.8.8.8
     externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
+    routerID: 6dd0a685-b5ba-4cd4-ac25-e13d755bac59
     apiServerAllowedCIDR: 0.0.0.0/0
   capabilities:
     security: false
