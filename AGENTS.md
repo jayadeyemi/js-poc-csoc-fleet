@@ -38,8 +38,6 @@ spec:
     cloudName: openstack
     imageID: 18895dd1-6e94-482b-9a62-9573328c7429
     sshKeyName: jetstream-CSOC-POC
-    externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
-    nodeCIDR: <unique RFC1918 CIDR>
   kubernetes:
     version: v1.34.8
     nodeClass: general
@@ -47,6 +45,10 @@ spec:
     maxNodes: 5
   network:
     connectivity: public
+    nodeCIDR: <unique RFC1918 CIDR>
+    dnsNameserver: 8.8.8.8
+    externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
+    apiServerAllowedCIDR: 0.0.0.0/0
   capabilities:
     security: false
     observability: false
@@ -71,7 +73,7 @@ applications:
 - `metadata.name` must be **globally unique** across the entire `customers/` tree. Use `<customer-id>-<env>` — no exceptions.
 - Customer IDs are lowercase, alphanumeric, hyphen-separated (e.g. `university-a`, `nci`, `research-project-x`).
 - Environments: `dev`, `staging`, `prod` only.
-- `spec.infrastructure.nodeCIDR` must be an unused, non-overlapping RFC1918
+- `spec.network.nodeCIDR` must be an unused, non-overlapping RFC1918
   subnet. Verify it against the existing OpenStack subnet inventory before
   merging.
 
