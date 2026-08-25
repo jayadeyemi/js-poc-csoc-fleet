@@ -10,3 +10,6 @@ spec:
   nodeCIDR: 10.2.0.0/24
   podCIDR: 192.168.0.0/16
   serviceCIDR: 10.96.0.0/12
+  networkMTU: 1500
+  enableDHCP: true
+  portSecurityEnabled: true

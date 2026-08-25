@@ -1,0 +1,9 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeSharedNetworkConfig
+metadata:
+  name: poc-tenant-dev
+  namespace: spokeclusters-test-poc
+spec:
+  # Replace both example UUIDs with exact shared/provider topology IDs.
+  networkID: 00000000-0000-0000-0000-000000000001
+  subnetID: 00000000-0000-0000-0000-000000000002

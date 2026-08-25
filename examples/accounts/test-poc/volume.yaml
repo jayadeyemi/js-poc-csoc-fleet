@@ -1,0 +1,8 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeVolume
+metadata:
+  name: poc-tenant-dev-data
+  namespace: spokeclusters-test-poc
+spec:
+  sizeGB: 10
+  description: Pre-provisioned example volume

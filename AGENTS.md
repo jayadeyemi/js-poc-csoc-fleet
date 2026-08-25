@@ -17,9 +17,9 @@ accounts/
     kustomization.yaml
 ```
 
-The initial account is `accounts/test-poc`. The CSOC Magnum credential does
-not belong here. The ignored runtime credential is loaded separately from
-`js-poc-csoc-bootstrap/scripts/host/credentials/accounts/test-poc/clouds.yaml`.
+No spoke account is currently active. `accounts/test-poc` contains only a
+retirement note and the reusable inactive examples live under
+`examples/accounts/test-poc`. The CSOC Magnum credential does not belong here.
 
 ## Rules
 
@@ -39,6 +39,7 @@ not belong here. The ignored runtime credential is loaded separately from
 - Hello application Services are internal OpenStack load balancers. Do not add
   a floating IP, remove the internal-only annotation, or reuse the Kubernetes
   API load balancer without a separately reviewed restricted-access change.
-- Removing a cluster or network manifest does not authorize deletion; live
-  teardown remains an explicit CAPI-first operation.
+- Removing a cluster/network manifest and merging it is the required retirement
+  signal, but Argo pruning remains disabled. Live teardown uses bootstrap's
+  explicit workload-first, CAPI-first, then network operation.
 - `kubectl kustomize accounts` and the workspace validation gate must pass.
