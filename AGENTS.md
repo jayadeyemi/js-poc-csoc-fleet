@@ -17,8 +17,9 @@ accounts/
     kustomization.yaml
 ```
 
-No spoke account is currently active. `accounts/test-poc` contains only a
-retirement note and the reusable inactive examples live under
+`accounts/test-poc` is the active development account and produces the small
+`poc-tenant-dev` spoke. The production CSOC omits its fleet Application, so it
+cannot render these instances. Reusable inactive variants remain under
 `examples/accounts/test-poc`. The CSOC Magnum credential does not belong here.
 
 ## Rules

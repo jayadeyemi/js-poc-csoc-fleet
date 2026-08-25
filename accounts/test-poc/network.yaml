@@ -1,0 +1,9 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: DedicatedSpokeNetwork
+metadata:
+  name: poc-tenant-dev
+  namespace: spokeclusters-test-poc
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: Development spoke network attached to the shared allocation router
