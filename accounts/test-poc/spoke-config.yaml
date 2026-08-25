@@ -1,0 +1,13 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeEnvironmentConfig
+metadata:
+  name: poc-tenant-dev
+  namespace: spokeclusters-test-poc
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  environment: dev
+  nodeClass: general
+  nodeCIDR: 10.2.0.0/24
+  podCIDR: 192.168.0.0/16
+  serviceCIDR: 10.96.0.0/12
