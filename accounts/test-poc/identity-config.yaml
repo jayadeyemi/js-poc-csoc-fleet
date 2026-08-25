@@ -20,7 +20,3 @@ spec:
     controlPlaneCount: 1
     controlPlaneFlavor: m3.small
     generalWorkerFlavor: m3.medium
-    highmemWorkerFlavor: r3.large
-    gpuWorkerFlavor: g3.small
-    minWorkers: 1
-    maxWorkers: 4
