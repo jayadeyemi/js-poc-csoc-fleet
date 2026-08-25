@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: poc-tenant-dev-network-config
+  namespace: spokeclusters-csoc-identity
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+  labels:
+    csoc.js2.org/config-source: fleet
+immutable: true
+data:
+  nodeCIDR: 10.2.0.0/24
