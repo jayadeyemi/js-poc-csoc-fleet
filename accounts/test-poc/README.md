@@ -10,6 +10,11 @@ to an ORC-managed Nova `KeyPair` and `SpokeCluster` consumes the generated
 connection ConfigMap. The matching private key remains only on the operator's
 local host.
 
+The spoke Hello service receives its own public Octavia load balancer on the
+private spoke subnet. `loadBalancerSourceRanges` permits only the tracked local
+operator egress `/32`; it does not expose the Kubernetes API or reuse its load
+balancer.
+
 The production CSOC profile omits the fleet Application, so this development
 inventory is never rendered into production even when the release branch
 contains the same files.
