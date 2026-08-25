@@ -27,8 +27,11 @@ not belong here. The ignored runtime credential is loaded separately from
 - Reviewed OpenStack project/provider IDs belong only in
   `identity-config.yaml`; consuming network and cluster instances cannot
   override them.
-- Mutable scale choices belong in `cluster.yaml`. Write-once allocation values
-  flow through graph-produced immutable ConfigMaps.
+- Mutable `minNodes` and `maxNodes` choices belong only in `cluster.yaml`.
+  Spokes use the approved general worker flavor from `identity-config.yaml`;
+  do not add GPU, high-memory, or per-cluster worker-class fields.
+  Other write-once allocation values flow through graph-produced immutable
+  ConfigMaps.
 - Workloads use KRO/CAPI addon graphs. Do not add app assignments, registration
   labels, Argo Applications, or ApplicationSets.
 - Removing a cluster or network manifest does not authorize deletion; live
