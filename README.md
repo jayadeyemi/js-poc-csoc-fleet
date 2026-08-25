@@ -23,11 +23,12 @@ examples/accounts/<identity>/
                             compute/security/storage service graphs
 ```
 
-No spoke account is currently active. `accounts/test-poc/README.md` records the
-retired initial account; examples are under `examples/accounts/test-poc`.
-Activation requires copying reviewed files into `accounts/<identity>`, naming
-the selected network manifest `network.yaml`, and listing that directory in
-`accounts/kustomization.yaml`. The Magnum credential never belongs here.
+`accounts/test-poc` is active only in the development CSOC profile and defines
+the small `poc-tenant-dev` spoke. Production omits the fleet Application
+entirely. Additional activation requires copying reviewed files into
+`accounts/<identity>`, naming the selected network manifest `network.yaml`, and
+listing that directory in `accounts/kustomization.yaml`. The Magnum credential
+never belongs here.
 
 ## Rules
 

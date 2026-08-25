@@ -1,11 +1,10 @@
 # test-poc
 
-No resources in this directory are active. The former `poc-tenant-dev` spoke
-was removed from desired state before its controller-led teardown.
+This is the active development account for the `dev` CSOC profile. It creates
+one small `poc-tenant-dev` spoke with one `m3.small` control plane and `1..2`
+`m3.quad` workers. Its API security group is restricted to the shared
+allocation router's reviewed SNAT address.
 
-To provision this account again, copy the reviewed files from
-`examples/accounts/test-poc/` into this directory, replace every documented
-placeholder, add `test-poc` to `accounts/kustomization.yaml`, load the separate
-restricted account credential, and follow the first-install ordering in the
-bootstrap repository. Do not restore `cluster.yaml` until its identity,
-configuration blocks, and selected network graph are Ready.
+The production CSOC profile omits the fleet Application, so this development
+inventory is never rendered into production even when the release branch
+contains the same files.
