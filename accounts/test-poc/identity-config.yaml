@@ -8,7 +8,7 @@ spec:
   projectID: 53f449a040d14cef8512b69e4ad521cd
   compute:
     imageID: 18895dd1-6e94-482b-9a62-9573328c7429
-    sshKeyName: jetstream-CSOC-POC
+    sshPublicKey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKyQMVyUP0N1s7WxXx2XO1wRsC3cZsAtsJ5jFYgyHtHb
     controlPlaneFlavor: m3.small
     generalWorkerFlavor: m3.quad
   network:
@@ -19,6 +19,8 @@ spec:
     dnsNameserver: 8.8.8.8
     # Only the shared allocation router's SNAT address may reach the spoke API.
     apiServerAllowedCIDR: 149.165.155.5/32
+    # Only the current local operator egress address may reach public apps.
+    applicationAllowedCIDR: 129.79.197.76/32
   storage:
     volumeType: __DEFAULT__
   loadBalancer:
