@@ -2,7 +2,7 @@ apiVersion: csoc.js2.org/v1alpha1
 kind: DedicatedSpokeNetwork
 metadata:
   name: poc-tenant-dev
-  namespace: spokeclusters-csoc-identity
+  namespace: spokeclusters-spoke-identity
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
