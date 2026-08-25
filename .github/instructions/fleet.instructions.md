@@ -1,26 +1,13 @@
 ---
-applyTo: "customers/**"
+applyTo: "accounts/**"
 ---
-# js-poc-csoc-fleet conventions
+# Fleet conventions
 
-All files under `customers/` are Kubernetes custom resource manifests applied by Argo CD.
+Each `accounts/<identity>/` directory composes one restricted OpenStack account
+through KRO instances. Use `SpokeIdentity`; keep provider restrictions in the
+account's `ImmutableSpokeConfig`; keep mutable worker bounds in
+`SpokeCluster`; deliver workloads with namespaced workload graph instances.
 
-## cluster.yaml
-
-- `apiVersion: csoc.js2.org/v1alpha1`, `kind: SpokeCluster`
-- `metadata.name`: `<customer-id>-<environment>` — globally unique, lowercase, hyphens only, no underscores
-- `metadata.namespace: spokeclusters`
-- `csoc.js2.org/type: spoke` is **not set here** — the registration controller adds it automatically
-
-## applications.yaml
-
-- `cluster:` must exactly match the sibling `cluster.yaml` `metadata.name`
-- `applications[].name` must match a top-level directory in `js-poc-csoc-app-catalog`
-- `applications[].release` is a semver or date-based tag (e.g. `"2026.08"`, `"4.7.1"`)
-
-## Naming
-
-Pattern: `<customer-id>-<environment>`
-- Customer IDs: lowercase, hyphen-separated (`university-a`, `nci`, `research-proj-x`)
-- Environments: `dev`, `staging`, `prod`
-- Examples: `nci-prod`, `university-a-dev`, `research-proj-x-staging`
+Do not add credentials, secret references, raw CAPI resources, Argo
+Applications, ApplicationSets, app assignments, or registration labels.
+Validate `kubectl kustomize accounts` before merging.

@@ -1,4 +1,0 @@
-cluster: poc-tenant-dev
-applications:
-  - name: hello-app
-    release: "0.1.0"
