@@ -1,0 +1,11 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeSecurityGroup
+metadata:
+  name: poc-tenant-dev-https
+  namespace: spokeclusters-test-poc
+spec:
+  description: Private HTTPS ingress example
+  ingressProtocol: tcp
+  ingressPortMin: 443
+  ingressPortMax: 443
+  ingressRemoteCIDR: 10.0.0.0/8

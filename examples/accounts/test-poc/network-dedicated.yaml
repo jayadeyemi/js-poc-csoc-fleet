@@ -6,4 +6,4 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
-  description: Dedicated network for poc-tenant-dev
+  description: Dedicated spoke network attached to the shared allocation router

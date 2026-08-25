@@ -1,8 +1,10 @@
 apiVersion: apps.csoc.js2.org/v1alpha1
-kind: CSOCHelloApp
+kind: HelloApp
 metadata:
   name: csoc
+  namespace: kro-system
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
+  target: csoc
   replicas: 2

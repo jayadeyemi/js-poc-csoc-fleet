@@ -1,0 +1,10 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeNetworkImportConfig
+metadata:
+  name: poc-tenant-dev
+  namespace: spokeclusters-test-poc
+spec:
+  # Replace all three example UUIDs with exact IDs from the same project.
+  networkID: 00000000-0000-0000-0000-000000000001
+  subnetID: 00000000-0000-0000-0000-000000000002
+  routerID: 00000000-0000-0000-0000-000000000003
