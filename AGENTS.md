@@ -3,6 +3,8 @@
 This repository is the authoritative inventory of KRO graph instances.
 
 ```
+csoc/
+  hello-app.yaml          CSOC-local direct workload instance
 accounts/
   kustomization.yaml
   <identity>/
@@ -34,6 +36,9 @@ not belong here. The ignored runtime credential is loaded separately from
   ConfigMaps.
 - Workloads use KRO/CAPI addon graphs. Do not add app assignments, registration
   labels, Argo Applications, or ApplicationSets.
+- Hello application Services are internal OpenStack load balancers. Do not add
+  a floating IP, remove the internal-only annotation, or reuse the Kubernetes
+  API load balancer without a separately reviewed restricted-access change.
 - Removing a cluster or network manifest does not authorize deletion; live
   teardown remains an explicit CAPI-first operation.
 - `kubectl kustomize accounts` and the workspace validation gate must pass.

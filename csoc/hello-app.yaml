@@ -1,0 +1,8 @@
+apiVersion: apps.csoc.js2.org/v1alpha1
+kind: CSOCHelloApp
+metadata:
+  name: csoc
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  replicas: 2
