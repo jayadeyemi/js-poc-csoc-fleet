@@ -1,0 +1,64 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: ImmutableSpokeConfig
+metadata:
+  name: example-dedicated
+spec:
+  projectID: 53f449a040d14cef8512b69e4ad521cd
+  compute:
+    imageID: 18895dd1-6e94-482b-9a62-9573328c7429
+    sshPublicKey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKyQMVyUP0N1s7WxXx2XO1wRsC3cZsAtsJ5jFYgyHtHb
+    controlPlaneFlavor: m3.small
+    generalWorkerFlavor: m3.quad
+  network:
+    externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
+    autoAllocatedNetworkName: auto_allocated_network
+    autoAllocatedSubnetName: auto_allocated_subnet_v4
+    autoAllocatedRouterName: auto_allocated_router
+    dnsNameserver: 8.8.8.8
+    apiServerAllowedCIDR: 192.0.2.1/32
+  storage: {volumeType: __DEFAULT__}
+  loadBalancer: {provider: amphora, exposurePolicy: internal}
+  kubernetes: {version: v1.34.8, controlPlaneCount: 1}
+---
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeIdentity
+metadata:
+  name: example-dedicated
+spec: {}
+---
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeEnvironmentConfig
+metadata:
+  name: example-dedicated
+  namespace: spokeclusters-example-dedicated
+spec:
+  environment: example
+  nodeCIDR: 10.20.0.0/24
+  podCIDR: 192.168.0.0/16
+  serviceCIDR: 10.96.0.0/12
+  networkMTU: 1500
+  enableDHCP: true
+  portSecurityEnabled: true
+---
+apiVersion: csoc.js2.org/v1alpha1
+kind: DedicatedSpokeNetwork
+metadata:
+  name: example-dedicated
+  namespace: spokeclusters-example-dedicated
+spec:
+  description: Managed network attached to the existing allocation router
+---
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeKeypair
+metadata:
+  name: example-dedicated
+  namespace: spokeclusters-example-dedicated
+spec: {}
+---
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeCluster
+metadata:
+  name: example-dedicated
+  namespace: spokeclusters-example-dedicated
+spec:
+  kubernetes: {minNodes: 1, maxNodes: 2}

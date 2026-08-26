@@ -1,7 +1,0 @@
-apiVersion: csoc.js2.org/v1alpha1
-kind: IsolatedOpenStackNetwork
-metadata:
-  name: poc-tenant-dev
-  namespace: spokeclusters-test-poc
-spec:
-  description: Isolated network without a router attachment

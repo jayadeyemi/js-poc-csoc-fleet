@@ -1,11 +1,11 @@
 apiVersion: apps.csoc.js2.org/v1alpha1
-kind: HelloApp
+kind: SpokeHelloApp
 metadata:
-  name: poc-tenant-dev
-  namespace: spokeclusters-test-poc
+  name: example-central-hello
+  namespace: spokeclusters-example-dedicated
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  target: spoke
+  clusterName: example-dedicated
   replicas: 2
   applicationAllowedCIDR: 192.0.2.1/32
