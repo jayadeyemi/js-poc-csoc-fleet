@@ -8,3 +8,5 @@ metadata:
 spec:
   target: spoke
   replicas: 2
+  # Mutable access policy; update when the local operator egress address changes.
+  applicationAllowedCIDR: 129.79.197.56/32
