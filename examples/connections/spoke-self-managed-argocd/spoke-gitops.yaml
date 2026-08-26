@@ -1,0 +1,13 @@
+apiVersion: apps.csoc.js2.org/v1alpha1
+kind: SpokeGitOps
+metadata:
+  name: example-spoke-gitops
+  namespace: spokeclusters-example-dedicated
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  clusterName: example-dedicated
+  repositoryURL: https://github.com/jayadeyemi/js-poc-csoc-fleet
+  targetRevision: main
+  path: examples/workload-repositories/hello
+  destinationNamespace: hello-app

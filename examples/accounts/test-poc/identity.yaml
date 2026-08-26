@@ -1,7 +1,0 @@
-apiVersion: csoc.js2.org/v1alpha1
-kind: SpokeIdentity
-metadata:
-  name: test-poc
-  annotations:
-    argocd.argoproj.io/sync-wave: "-3"
-spec: {}

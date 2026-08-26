@@ -17,10 +17,11 @@ accounts/
     kustomization.yaml
 ```
 
-`accounts/test-poc` is the active development account and produces the small
-`poc-tenant-dev` spoke. The production CSOC omits its fleet Application, so it
-cannot render these instances. Reusable inactive variants remain under
-`examples/accounts/test-poc`. The CSOC Magnum credential does not belong here.
+No spoke account is currently active. The retired `poc-tenant-dev` composition
+is preserved under `examples/retired/`, and reusable complete variants live
+under `examples/compositions/`. The production CSOC omits its fleet
+Application, so it cannot render these instances. The CSOC Magnum credential
+does not belong here.
 
 ## Rules
 
@@ -35,8 +36,9 @@ cannot render these instances. Reusable inactive variants remain under
   do not add GPU, high-memory, or per-cluster worker-class fields.
   Other write-once allocation values flow through graph-produced immutable
   ConfigMaps.
-- Workloads use KRO/CAPI addon graphs. Do not add app assignments, registration
-  labels, Argo Applications, or ApplicationSets.
+- CSOC-local workloads use `HelloApp`; centrally delivered spoke workloads use
+  `SpokeHelloApp`; spoke-owned GitOps uses `SpokeGitOps`. Do not combine central
+  and spoke-local ownership for the same workload.
 - Hello application Services are internal OpenStack load balancers. Do not add
   a floating IP, remove the internal-only annotation, or reuse the Kubernetes
   API load balancer without a separately reviewed restricted-access change.

@@ -1,6 +1,0 @@
-apiVersion: csoc.js2.org/v1alpha1
-kind: ImportedSpokeNetwork
-metadata:
-  name: poc-tenant-dev
-  namespace: spokeclusters-test-poc
-spec: {}

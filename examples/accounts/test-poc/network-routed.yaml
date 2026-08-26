@@ -1,7 +1,0 @@
-apiVersion: csoc.js2.org/v1alpha1
-kind: RoutedSpokeNetwork
-metadata:
-  name: poc-tenant-dev
-  namespace: spokeclusters-test-poc
-spec:
-  description: Dedicated network with a dedicated externally-gated router
