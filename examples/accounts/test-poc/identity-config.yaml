@@ -19,7 +19,6 @@ spec:
     dnsNameserver: 8.8.8.8
     # Replace with the narrow operator/client CIDR before activation.
     apiServerAllowedCIDR: 192.0.2.1/32
-    applicationAllowedCIDR: 192.0.2.1/32
   storage:
     volumeType: __DEFAULT__
   loadBalancer:

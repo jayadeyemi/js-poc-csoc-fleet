@@ -19,8 +19,6 @@ spec:
     dnsNameserver: 8.8.8.8
     # Only the shared allocation router's SNAT address may reach the spoke API.
     apiServerAllowedCIDR: 149.165.155.5/32
-    # Only the current local operator egress address may reach public apps.
-    applicationAllowedCIDR: 129.79.197.76/32
   storage:
     volumeType: __DEFAULT__
   loadBalancer:

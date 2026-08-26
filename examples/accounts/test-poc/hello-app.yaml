@@ -8,3 +8,4 @@ metadata:
 spec:
   target: spoke
   replicas: 2
+  applicationAllowedCIDR: 192.0.2.1/32
