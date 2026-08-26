@@ -17,7 +17,6 @@ spec:
     autoAllocatedSubnetName: auto_allocated_subnet_v4
     autoAllocatedRouterName: auto_allocated_router
     dnsNameserver: 8.8.8.8
-    # Only the shared allocation router's SNAT address may reach the spoke API.
     apiServerAllowedCIDR: 149.165.155.5/32
   storage:
     volumeType: __DEFAULT__

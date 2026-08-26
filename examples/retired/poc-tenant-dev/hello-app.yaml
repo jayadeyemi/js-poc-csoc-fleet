@@ -1,12 +1,11 @@
 apiVersion: apps.csoc.js2.org/v1alpha1
-kind: HelloApp
+kind: SpokeHelloApp
 metadata:
   name: poc-tenant-dev
   namespace: spokeclusters-test-poc
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  target: spoke
+  clusterName: poc-tenant-dev
   replicas: 2
-  # Mutable access policy; update when the local operator egress address changes.
   applicationAllowedCIDR: 129.79.197.56/32
