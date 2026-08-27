@@ -20,8 +20,9 @@ examples/
   retired/                  inactive records of retired compositions
 ```
 
-The initial active tuple is `test-poc/hello-app/dev`, owned by staging and named
-`test-poc-hello-app-dev`. The former `poc-tenant-dev` composition remains under
+The compatibility tuple is `test-poc/hello-app/dev`, and the first reference
+adaptation is `training-account/jupyterhub/dev`; both are owned by staging and
+use canonical tuple names. The former `poc-tenant-dev` composition remains under
 `examples/retired/` for compatibility comparison. The Magnum credential never
 belongs here.
 

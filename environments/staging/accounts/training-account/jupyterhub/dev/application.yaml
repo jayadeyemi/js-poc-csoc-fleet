@@ -1,0 +1,14 @@
+apiVersion: apps.csoc.js2.org/v1alpha1
+kind: SpokeArgoApplication
+metadata:
+  name: training-account-jupyterhub-dev
+  namespace: spokeclusters-training-account-jupyterhub-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  clusterName: training-account-jupyterhub-dev
+  argoCDName: training-account-jupyterhub-dev
+  repositoryURL: https://github.com/jayadeyemi/gitops.git
+  targetRevision: 9a9b212691ea7fb781cea9cf5e716a2f5d10c297
+  path: argo/clusters/training-account/dev
+  destinationNamespace: argocd
