@@ -1,0 +1,8 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeKeypair
+metadata:
+  name: test-poc-hello-app-dev
+  namespace: spokeclusters-test-poc-hello-app-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec: {}
