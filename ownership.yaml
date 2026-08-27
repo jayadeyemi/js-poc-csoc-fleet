@@ -11,3 +11,13 @@ assignments:
     environment: dev
     owner: staging
     path: accounts/staging/accounts/training-account/jupyterhub/dev
+  - account: training-account
+    app: registry-cache
+    environment: dev
+    owner: staging
+    path: accounts/staging/accounts/training-account/registry-cache/dev
+  - account: training-account
+    app: monitoring
+    environment: dev
+    owner: staging
+    path: accounts/staging/accounts/training-account/monitoring/dev

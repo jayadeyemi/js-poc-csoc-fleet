@@ -21,3 +21,7 @@ For each larger reference application:
    readiness from actual workload and storage conditions.
 5. Test install, repeat, interruption, upgrade, rollback, PVC reattachment, and
    removal-with-retention before assigning a staging tuple.
+
+The deployable GitOps leaf must mirror the fleet order exactly:
+`argo/accounts/<owner>/accounts/<account>/<app>/<environment>`. A leaf contains
+one project and one workload Application; application types never share a spoke.

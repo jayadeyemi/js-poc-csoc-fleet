@@ -1,0 +1,9 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: DedicatedSpokeNetwork
+metadata:
+  name: training-account-registry-cache-dev
+  namespace: spokeclusters-training-account-registry-cache-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: Development spoke network for the training-account registry cache
