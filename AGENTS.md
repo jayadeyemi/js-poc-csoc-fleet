@@ -1,5 +1,19 @@
 # js-poc-csoc-fleet
 
+## Environment and ownership invariants
+
+- Argo renders only `environments/<owner>`. `environments/dev` is always empty.
+- Active instances use `accounts/<account>/<app>/<environment>` below their
+  owner root and canonical name `<account>-<app>-<environment>`.
+- Every tuple appears exactly once in `ownership.yaml`; staging initially owns
+  only `test-poc/hello-app/dev`. Prod owns prod and explicitly routed dev tuples.
+- Tuple labels, identity name, namespace, cluster name, and app reference must
+  agree. A duplicate tuple or name is a validation failure.
+- Argo pruning stays disabled for infrastructure. Removing Git does not delete
+  a spoke; retirement is an exact-name/UUID reviewed workflow after backups.
+- Keep dev instances minimal, use dedicated Cinder PVCs for persistent data,
+  and prove reconciliation preserves those PVCs before promotion.
+
 This repository is the authoritative inventory of KRO graph instances.
 
 ```
