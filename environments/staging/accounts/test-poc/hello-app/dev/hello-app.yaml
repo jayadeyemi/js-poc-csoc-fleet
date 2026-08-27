@@ -1,0 +1,11 @@
+apiVersion: apps.csoc.js2.org/v1alpha1
+kind: SpokeHelloApp
+metadata:
+  name: test-poc-hello-app-dev
+  namespace: spokeclusters-test-poc-hello-app-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  clusterName: test-poc-hello-app-dev
+  replicas: 1
+  applicationAllowedCIDR: 129.79.197.56/32

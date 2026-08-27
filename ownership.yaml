@@ -1,0 +1,8 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: FleetOwnershipRegistry
+assignments:
+  - account: test-poc
+    app: hello-app
+    environment: dev
+    owner: staging
+    path: environments/staging/accounts/test-poc/hello-app/dev
