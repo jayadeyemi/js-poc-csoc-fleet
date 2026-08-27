@@ -7,7 +7,7 @@ Authoritative inventory of KRO graph instances for the CSOC POC.
 ```
 kustomization.yaml          intentionally empty safety root
 ownership.yaml              unique tuple-to-CSOC assignments
-environments/
+accounts/
   dev/                      always empty; graph development creates no instances
   staging/accounts/<account>/<app>/<environment>/
                              staging-owned dev instances
@@ -43,7 +43,7 @@ belongs here.
 - Removing manifests is the Git retirement gate but does not itself delete
   them because Argo pruning is disabled. Merge the removal, wait for Argo
   `Synced`, then use bootstrap's ownership-gated destroy-spoke operation.
-- Render every environment and run bootstrap `make validate` before merging.
+- Render every owner root and run bootstrap `make validate` before merging.
 
 See [`examples/README.md`](examples/README.md) for the composition matrix and
 exact add/remove semantics.

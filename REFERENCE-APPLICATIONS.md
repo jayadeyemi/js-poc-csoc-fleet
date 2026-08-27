@@ -5,7 +5,7 @@ cluster roots. Applications extracted from them are deployed to the spoke API,
 never to a CSOC management cluster.
 
 The first accepted instance is the minimal `test-poc/hello-app/dev` manifest in
-`environments/staging`. It uses one application replica and the smallest spoke
+`accounts/staging`. It uses one application replica and the smallest spoke
 worker bounds currently supported by the graph. It is the compatibility harness
 for direct delivery, interruption, repeat reconciliation, and bounded scaling.
 

@@ -2,7 +2,7 @@
 
 ## Environment and ownership invariants
 
-- Argo renders only `environments/<owner>`. `environments/dev` is always empty.
+- Argo renders only `accounts/<owner>`. `accounts/dev` is always empty.
 - Active instances use `accounts/<account>/<app>/<environment>` below their
   owner root and canonical name `<account>-<app>-<environment>`.
 - Every tuple appears exactly once in `ownership.yaml`; staging initially owns
@@ -59,4 +59,5 @@ does not belong here.
 - Removing a cluster/network manifest and merging it is the required retirement
   signal, but Argo pruning remains disabled. Live teardown uses bootstrap's
   explicit workload-first, CAPI-first, then network operation.
-- `kubectl kustomize accounts` and the workspace validation gate must pass.
+- `kubectl kustomize accounts/<owner>` for every owner root and the workspace
+  validation gate must pass.
