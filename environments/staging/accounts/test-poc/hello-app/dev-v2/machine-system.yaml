@@ -1,0 +1,13 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: MachineProfile
+metadata: {name: system, namespace: spokeclusters-test-poc}
+spec:
+  accountRef: {name: test-poc}
+  class: system
+  flavorID: "3"
+  vCPUs: 4
+  ramMiB: 15360
+  imageID: 18895dd1-6e94-482b-9a62-9573328c7429
+  volumeTypeID: 895fb040-2aed-40a2-b2e6-a6daf2cdfa6d
+  rootSizeGiB: 20
+  failureDomain: nova

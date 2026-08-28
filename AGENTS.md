@@ -13,6 +13,15 @@
   a spoke; retirement is an exact-name/UUID reviewed workflow after backups.
 - Keep dev instances minimal, use dedicated Cinder PVCs for persistent data,
   and prove reconciliation preserves those PVCs before promotion.
+- V2 fleet instances create management-side KRO/CAPI/Argo control objects only.
+  Every addon, policy, PVC, monitoring component, and application must be an
+  Argo destination in the spoke cluster. Do not add v2 CAPI addon delivery.
+- Never specify `MachineDeployment.spec.replicas` through a `SpokeNodePool`;
+  its min/max annotations are the bounds and Cluster Autoscaler owns replicas.
+- Declare account capacity from pool maxima and retained claim maxima, then
+  validate it against live OpenStack quota before an active fleet commit.
+- Optional v2 GPU/MIG, CephFS, S3, Binder, and Outpost instances are forbidden;
+  registry cache may render in tests but is not active in the first rollout.
 
 This repository is the authoritative inventory of KRO graph instances.
 

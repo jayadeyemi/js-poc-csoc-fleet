@@ -1,0 +1,8 @@
+apiVersion: delivery.csoc.js2.org/v1alpha1
+kind: ApplicationBoundary
+metadata: {name: monitoring, namespace: spokeclusters-test-poc}
+spec:
+  registrationRef: {name: test-poc-v2-dev}
+  destinationNamespace: monitoring
+  serviceType: monitoring
+  sourceRepository: https://github.com/jayadeyemi/config

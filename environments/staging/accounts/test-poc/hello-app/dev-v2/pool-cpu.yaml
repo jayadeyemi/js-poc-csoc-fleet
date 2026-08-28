@@ -1,0 +1,11 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: SpokeNodePool
+metadata: {name: cpu, namespace: spokeclusters-test-poc}
+spec:
+  clusterRef: {name: test-poc-v2-dev}
+  profileRef: {name: cpu}
+  class: cpu
+  minNodes: 0
+  maxNodes: 1
+  failureDomain: nova
+  capacity: {cpu: 4000m, memory: 15Gi, gpu: "0"}

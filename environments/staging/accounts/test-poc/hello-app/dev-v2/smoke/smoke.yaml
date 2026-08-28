@@ -1,0 +1,11 @@
+apiVersion: services.csoc.js2.org/v1alpha1
+kind: SmokeApplication
+metadata: {name: smoke, namespace: spokeclusters-test-poc}
+spec:
+  boundaryRef: {name: smoke}
+  systemPoolRef: {name: system}
+  endpointRef: {name: smoke}
+  configRepository: https://github.com/jayadeyemi/config
+  configCommit: 3d86cf7acdeac555a30ce857382750196f934ea7
+  configPath: projects/csoc-v2/smoke
+  image: nginxinc/nginx-unprivileged@sha256:8059701048a6cc7d64e8ab2812a44be70161bfa9ecfc01d69e95b8ff2a648705

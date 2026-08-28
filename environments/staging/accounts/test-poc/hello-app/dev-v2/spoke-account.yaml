@@ -1,0 +1,9 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: SpokeAccount
+metadata: {name: test-poc, namespace: spokeclusters-test-poc}
+spec:
+  projectID: 53f449a040d14cef8512b69e4ad521cd
+  credentialSecretName: test-poc-cloud-config
+  externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
+  capacityBudget: {maxCores: 10, maxRAMMiB: 36864, maxInstances: 3, maxVolumes: 6, maxVolumeGiB: 100}
+  controlObjectBudget: {maxMachineProfiles: 3, maxWorkloadClusters: 1, maxNodePools: 2}

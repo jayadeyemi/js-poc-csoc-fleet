@@ -1,0 +1,12 @@
+apiVersion: delivery.csoc.js2.org/v1alpha1
+kind: HubAuthBinding
+metadata: {name: dummy, namespace: spokeclusters-test-poc}
+spec:
+  boundaryRef: {name: jupyterhub}
+  mode: dummy
+  environment: dev
+  endpointRef: {name: hub}
+  endpointPlacement: clusterIP
+  secretBundleRef: {name: ""}
+  openStackMembershipAuthorization: false
+  openStackProjectID: ""

@@ -1,0 +1,12 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: WorkloadCluster
+metadata: {name: test-poc-v2-dev, namespace: spokeclusters-test-poc}
+spec:
+  accountRef: {name: test-poc}
+  networkRef: {name: network}
+  controlPlaneProfileRef: {name: control}
+  kubernetesVersion: v1.34.8
+  controlPlaneCount: 1
+  podCIDR: 192.168.0.0/16
+  serviceCIDR: 10.96.0.0/12
+  apiServerAllowedCIDR: 149.165.155.5/32

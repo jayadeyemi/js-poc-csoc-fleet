@@ -1,0 +1,13 @@
+apiVersion: delivery.csoc.js2.org/v1alpha1
+kind: CinderStorageBinding
+metadata: {name: homes, namespace: spokeclusters-test-poc}
+spec:
+  boundaryRef: {name: jupyterhub}
+  purpose: homes
+  mode: dynamicPolicy
+  storageClassName: cinder-retain
+  sizeGiB: 10
+  maxClaims: 1
+  existingVolumeID: ""
+  claimName: ""
+  configCommit: ""

@@ -1,0 +1,8 @@
+apiVersion: delivery.csoc.js2.org/v1alpha1
+kind: ApplicationBoundary
+metadata: {name: smoke, namespace: spokeclusters-test-poc}
+spec:
+  registrationRef: {name: test-poc-v2-dev}
+  destinationNamespace: smoke
+  serviceType: smoke
+  sourceRepository: https://github.com/jayadeyemi/config

@@ -1,0 +1,4 @@
+apiVersion: delivery.csoc.js2.org/v1alpha1
+kind: EndpointBinding
+metadata: {name: smoke, namespace: spokeclusters-test-poc}
+spec: {boundaryRef: {name: smoke}, placement: clusterIP, allowedCIDR: "", hostname: "", tlsMode: none, tlsSecretName: ""}

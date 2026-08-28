@@ -1,0 +1,6 @@
+apiVersion: fleet.csoc.js2.org/v1alpha1
+kind: FleetOwnershipRegistry
+clusters:
+  - {name: shared-prod, account: test-poc, owner: prod, type: WorkloadCluster, path: environments/staging/accounts/test-poc/hello-app/dev-v2}
+applications:
+  - {account: test-poc, app: smoke, environment: dev, owner: staging, type: SmokeApplication, clusterRef: shared-prod, path: environments/staging/accounts/test-poc/hello-app/dev-v2/smoke}

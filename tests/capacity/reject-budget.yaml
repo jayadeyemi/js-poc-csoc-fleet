@@ -1,0 +1,31 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: SpokeAccount
+metadata: {name: account, namespace: spokeclusters-account}
+spec:
+  capacityBudget: {maxCores: 9, maxRAMMiB: 36864, maxInstances: 3, maxVolumes: 6, maxVolumeGiB: 100}
+  controlObjectBudget: {maxMachineProfiles: 3, maxWorkloadClusters: 1, maxNodePools: 2}
+---
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: MachineProfile
+metadata: {name: control, namespace: spokeclusters-account}
+spec: {accountRef: {name: account}, vCPUs: 2, ramMiB: 6144, rootSizeGiB: 20}
+---
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: MachineProfile
+metadata: {name: worker, namespace: spokeclusters-account}
+spec: {accountRef: {name: account}, vCPUs: 4, ramMiB: 15360, rootSizeGiB: 20}
+---
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: WorkloadCluster
+metadata: {name: shared, namespace: spokeclusters-account}
+spec: {accountRef: {name: account}, controlPlaneProfileRef: {name: control}, controlPlaneCount: 1}
+---
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: SpokeNodePool
+metadata: {name: system, namespace: spokeclusters-account}
+spec: {clusterRef: {name: shared}, profileRef: {name: worker}, maxNodes: 1}
+---
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: SpokeNodePool
+metadata: {name: cpu, namespace: spokeclusters-account}
+spec: {clusterRef: {name: shared}, profileRef: {name: worker}, maxNodes: 1}

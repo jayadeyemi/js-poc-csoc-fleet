@@ -1,0 +1,4 @@
+apiVersion: delivery.csoc.js2.org/v1alpha1
+kind: EndpointBinding
+metadata: {name: hub, namespace: spokeclusters-test-poc}
+spec: {boundaryRef: {name: jupyterhub}, placement: clusterIP, allowedCIDR: "", hostname: "", tlsMode: none, tlsSecretName: ""}

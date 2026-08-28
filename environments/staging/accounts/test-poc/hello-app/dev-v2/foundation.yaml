@@ -1,0 +1,15 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: ClusterFoundation
+metadata: {name: foundation, namespace: spokeclusters-test-poc}
+spec:
+  clusterRef: {name: test-poc-v2-dev}
+  registrationRef: {name: test-poc-v2-dev}
+  systemPoolRef: {name: system}
+  configRepository: https://github.com/jayadeyemi/config
+  configCommit: 3d86cf7acdeac555a30ce857382750196f934ea7
+  configPath: projects/csoc-v2/foundation
+  calicoVersion: v3.32.1
+  ccmChartVersion: 2.34.2
+  cinderCSIChartVersion: 2.34.3
+  autoscalerChartVersion: 9.53.0
+  autoscalerVersion: v1.34.5

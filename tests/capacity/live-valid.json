@@ -1,0 +1,11 @@
+{
+  "compute": {
+    "cores": {"limit": 64, "in_use": 20},
+    "ramMiB": {"limit": 262144, "in_use": 65536},
+    "instances": {"limit": 30, "in_use": 8}
+  },
+  "volume": {
+    "volumes": {"limit": 40, "in_use": 10},
+    "gigabytes": {"limit": 4000, "in_use": 1000}
+  }
+}

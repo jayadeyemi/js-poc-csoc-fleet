@@ -1,0 +1,15 @@
+apiVersion: services.csoc.js2.org/v1alpha1
+kind: MonitoringInstance
+metadata: {name: monitoring, namespace: spokeclusters-test-poc}
+spec:
+  boundaryRef: {name: monitoring}
+  systemPoolRef: {name: system}
+  prometheusStorageRef: {name: metrics}
+  grafanaEnabled: false
+  alertmanagerEnabled: false
+  secretBundleRef: {name: ""}
+  endpointRef: {name: ""}
+  configRepository: https://github.com/jayadeyemi/config
+  configCommit: 3d86cf7acdeac555a30ce857382750196f934ea7
+  configPath: projects/csoc-v2/monitoring
+  chartVersion: 84.3.0

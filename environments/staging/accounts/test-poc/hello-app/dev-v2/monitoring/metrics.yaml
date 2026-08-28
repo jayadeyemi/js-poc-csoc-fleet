@@ -1,0 +1,13 @@
+apiVersion: delivery.csoc.js2.org/v1alpha1
+kind: CinderStorageBinding
+metadata: {name: metrics, namespace: spokeclusters-test-poc}
+spec:
+  boundaryRef: {name: monitoring}
+  purpose: metrics
+  mode: dynamicPolicy
+  storageClassName: cinder-retain
+  sizeGiB: 20
+  maxClaims: 1
+  existingVolumeID: ""
+  claimName: ""
+  configCommit: ""

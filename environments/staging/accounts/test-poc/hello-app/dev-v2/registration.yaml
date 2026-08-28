@@ -1,0 +1,7 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: SpokeRegistration
+metadata: {name: test-poc-v2-dev, namespace: spokeclusters-test-poc}
+spec:
+  clusterRef: {name: test-poc-v2-dev}
+  workloadCloudConfigSecretName: test-poc-workload-cloud-config
+  rotationRequest: initial-2026-08-28

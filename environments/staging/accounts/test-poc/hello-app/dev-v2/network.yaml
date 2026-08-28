@@ -1,0 +1,13 @@
+apiVersion: infra.csoc.js2.org/v1alpha1
+kind: SpokeNetwork
+metadata: {name: network, namespace: spokeclusters-test-poc}
+spec:
+  accountRef: {name: test-poc}
+  mode: managedRouted
+  nodeCIDR: 10.42.0.0/24
+  networkID: ""
+  subnetID: ""
+  routerID: ""
+  dnsNameserver: 8.8.8.8
+  mtu: 1500
+  portSecurityEnabled: true

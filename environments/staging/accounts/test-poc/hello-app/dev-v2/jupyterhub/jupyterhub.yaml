@@ -1,0 +1,21 @@
+apiVersion: services.csoc.js2.org/v1alpha1
+kind: JupyterHubInstance
+metadata: {name: jupyterhub, namespace: spokeclusters-test-poc}
+spec:
+  boundaryRef: {name: jupyterhub}
+  systemPoolRef: {name: system}
+  cpuPoolRef: {name: cpu}
+  authRef: {name: dummy}
+  endpointRef: {name: hub}
+  hubDatabaseRef: {name: hub-db}
+  homeStorageRef: {name: homes}
+  gpuPoolRef: {name: ""}
+  migPoolRef: {name: ""}
+  cephFSHomesRef: {name: ""}
+  s3DatasetsRef: {name: ""}
+  binderBuildRef: {name: ""}
+  outpostRef: {name: ""}
+  configRepository: https://github.com/jayadeyemi/config
+  configCommit: 3d86cf7acdeac555a30ce857382750196f934ea7
+  configPath: projects/csoc-v2/jupyterhub
+  chartVersion: 4.3.4
