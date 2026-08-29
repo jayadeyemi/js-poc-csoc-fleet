@@ -6,4 +6,4 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
-  description: Development spoke network owned by csoc-staging
+  description: Development spoke network owned by js2-csoc-staging
