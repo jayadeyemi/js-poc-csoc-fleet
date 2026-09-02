@@ -1,0 +1,92 @@
+apiVersion: benchmark.csoc.js2.org/v1alpha1
+kind: SpokeScaleInventory
+metadata:
+  name: staging-v1-scale
+spec:
+  projectID: 53f449a040d14cef8512b69e4ad521cd
+  rootVolumeGiB: 20
+  controlPlaneFlavor: m3.small
+  workerFlavor: m3.quad
+  timeoutSeconds: 7200
+  expected:
+    single: {spokes: 1, servers: 2, volumes: 2, volumeGiB: 40, loadBalancers: 1, networks: 1, subnets: 1}
+    batch: {spokes: 10, servers: 33, volumes: 33, volumeGiB: 660, loadBalancers: 10, networks: 10, subnets: 10}
+    total: {spokes: 11, servers: 35, volumes: 35, volumeGiB: 700, loadBalancers: 11, networks: 11, subnets: 11}
+  spokes:
+  - name: scale-00-kubernetes-dev
+    account: scale-00
+    phase: single
+    nodeCIDR: 10.20.0.0/24
+    controlPlanes: 1
+    minWorkers: 1
+    maxWorkers: 1
+  - name: scale-01-kubernetes-dev
+    account: scale-01
+    phase: batch
+    nodeCIDR: 10.21.0.0/24
+    controlPlanes: 1
+    minWorkers: 1
+    maxWorkers: 2
+  - name: scale-02-kubernetes-dev
+    account: scale-02
+    phase: batch
+    nodeCIDR: 10.22.0.0/24
+    controlPlanes: 1
+    minWorkers: 1
+    maxWorkers: 2
+  - name: scale-03-kubernetes-dev
+    account: scale-03
+    phase: batch
+    nodeCIDR: 10.23.0.0/24
+    controlPlanes: 1
+    minWorkers: 1
+    maxWorkers: 2
+  - name: scale-04-kubernetes-dev
+    account: scale-04
+    phase: batch
+    nodeCIDR: 10.24.0.0/24
+    controlPlanes: 1
+    minWorkers: 2
+    maxWorkers: 3
+  - name: scale-05-kubernetes-dev
+    account: scale-05
+    phase: batch
+    nodeCIDR: 10.25.0.0/24
+    controlPlanes: 1
+    minWorkers: 2
+    maxWorkers: 3
+  - name: scale-06-kubernetes-dev
+    account: scale-06
+    phase: batch
+    nodeCIDR: 10.26.0.0/24
+    controlPlanes: 1
+    minWorkers: 2
+    maxWorkers: 3
+  - name: scale-07-kubernetes-dev
+    account: scale-07
+    phase: batch
+    nodeCIDR: 10.27.0.0/24
+    controlPlanes: 1
+    minWorkers: 3
+    maxWorkers: 4
+  - name: scale-08-kubernetes-dev
+    account: scale-08
+    phase: batch
+    nodeCIDR: 10.28.0.0/24
+    controlPlanes: 1
+    minWorkers: 3
+    maxWorkers: 4
+  - name: scale-09-kubernetes-dev
+    account: scale-09
+    phase: batch
+    nodeCIDR: 10.29.0.0/24
+    controlPlanes: 3
+    minWorkers: 1
+    maxWorkers: 2
+  - name: scale-10-kubernetes-dev
+    account: scale-10
+    phase: batch
+    nodeCIDR: 10.30.0.0/24
+    controlPlanes: 3
+    minWorkers: 3
+    maxWorkers: 4

@@ -1,0 +1,12 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeIdentity
+metadata:
+  name: scale-09-kubernetes-dev
+  labels:
+    csoc.js2.org/account: scale-09
+    csoc.js2.org/app: kubernetes
+    csoc.js2.org/environment: dev
+    csoc.js2.org/owner: staging
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec: {}

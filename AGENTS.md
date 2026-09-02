@@ -5,8 +5,11 @@
 - Argo renders only `accounts/<owner>`. `accounts/dev` is always empty.
 - Active instances use `accounts/<account>/<app>/<environment>` below their
   owner root and canonical name `<account>-<app>-<environment>`.
-- Every tuple appears exactly once in `ownership.yaml`; staging initially owns
-  only `test-poc/hello-app/dev`. Prod owns prod and explicitly routed dev tuples.
+- Every tuple appears exactly once in `ownership.yaml`. Staging owns its
+  ordinary dev tuples and the manual `scale-00..10/kubernetes/dev` benchmark;
+  prod owns production and explicitly routed dev tuples.
+- Benchmark tuple directories stay outside the ordinary staging Kustomization
+  and are reconciled only by their manual, phase-labeled Argo Applications.
 - Tuple labels, identity name, namespace, cluster name, and app reference must
   agree. A duplicate tuple or name is a validation failure.
 - Argo pruning stays disabled for infrastructure. Removing Git does not delete
