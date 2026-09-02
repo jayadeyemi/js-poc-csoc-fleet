@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - accounts/test-poc/hello-app/dev
+  - accounts/training-account/jupyterhub/dev
+  - accounts/training-account/registry-cache/dev
+  - accounts/training-account/monitoring/dev

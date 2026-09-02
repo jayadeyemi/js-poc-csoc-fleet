@@ -1,0 +1,9 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: DedicatedSpokeNetwork
+metadata:
+  name: scale-00-kubernetes-dev
+  namespace: spokeclusters-scale-00-kubernetes-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: Scale benchmark spoke network owned by js-csoc-staging

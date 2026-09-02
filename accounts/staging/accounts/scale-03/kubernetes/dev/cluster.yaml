@@ -1,0 +1,11 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeCluster
+metadata:
+  name: scale-03-kubernetes-dev
+  namespace: spokeclusters-scale-03-kubernetes-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  kubernetes:
+    minNodes: 1
+    maxNodes: 2

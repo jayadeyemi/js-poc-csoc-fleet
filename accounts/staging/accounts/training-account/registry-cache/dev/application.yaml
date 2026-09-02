@@ -1,0 +1,14 @@
+apiVersion: apps.csoc.js2.org/v1alpha1
+kind: SpokeArgoApplication
+metadata:
+  name: training-account-registry-cache-dev
+  namespace: spokeclusters-training-account-registry-cache-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  clusterName: training-account-registry-cache-dev
+  argoCDName: training-account-registry-cache-dev
+  repositoryURL: https://github.com/jayadeyemi/gitops.git
+  targetRevision: 94e13ed5cc1683605a4621cefeec3041d86d8c53
+  path: argo/accounts/staging/accounts/training-account/registry-cache/dev
+  destinationNamespace: argocd

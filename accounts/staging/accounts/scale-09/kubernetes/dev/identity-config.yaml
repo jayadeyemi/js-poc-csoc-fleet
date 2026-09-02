@@ -1,0 +1,34 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: ImmutableSpokeConfig
+metadata:
+  name: scale-09-kubernetes-dev
+  labels:
+    csoc.js2.org/account: scale-09
+    csoc.js2.org/app: kubernetes
+    csoc.js2.org/environment: dev
+    csoc.js2.org/owner: staging
+  annotations:
+    argocd.argoproj.io/sync-wave: "-4"
+spec:
+  projectID: 53f449a040d14cef8512b69e4ad521cd
+  compute:
+    imageID: 18895dd1-6e94-482b-9a62-9573328c7429
+    sshPublicKey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKyQMVyUP0N1s7WxXx2XO1wRsC3cZsAtsJ5jFYgyHtHb
+    controlPlaneFlavor: m3.small
+    generalWorkerFlavor: m3.quad
+  network:
+    externalNetworkID: 3fe22c05-6206-4db2-9a13-44f04b6796e6
+    autoAllocatedNetworkName: auto_allocated_network
+    autoAllocatedSubnetName: auto_allocated_subnet_v4
+    autoAllocatedRouterName: auto_allocated_router
+    dnsNameserver: 8.8.8.8
+    apiServerAllowedCIDR: 149.165.155.5/32
+  storage:
+    volumeType: __DEFAULT__
+    availabilityZone: nova
+  loadBalancer:
+    provider: amphora
+    exposurePolicy: internal
+  kubernetes:
+    version: v1.34.8
+    controlPlaneCount: 3

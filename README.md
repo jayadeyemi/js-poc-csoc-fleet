@@ -7,10 +7,12 @@ Authoritative inventory of KRO graph instances for the CSOC POC.
 ```
 kustomization.yaml          intentionally empty safety root
 ownership.yaml              unique tuple-to-CSOC assignments
-environments/
+accounts/
   dev/                      always empty; graph development creates no instances
   staging/accounts/<account>/<app>/<environment>/
                              staging-owned dev instances
+  staging/benchmarks/v1-scale/
+                             manual 1-versus-10 benchmark inventory and guide
   prod/accounts/<account>/<app>/<environment>/
                              prod and explicitly routed dev instances
 examples/
@@ -20,10 +22,16 @@ examples/
   retired/                  inactive records of retired compositions
 ```
 
-The initial active tuple is `test-poc/hello-app/dev`, owned by staging and named
-`test-poc-hello-app-dev`. The former `poc-tenant-dev` composition remains under
-`examples/retired/` for compatibility comparison. The Magnum credential never
-belongs here.
+The compatibility tuple is `test-poc/hello-app/dev`. The reference application
+types are `training-account/jupyterhub/dev`,
+`training-account/registry-cache/dev`, and `training-account/monitoring/dev`.
+Each is staging-owned, uses its canonical tuple name, and owns a distinct spoke.
+The `scale-00..10/kubernetes/dev` tuples are also staging-owned but are
+excluded from the ordinary staging Kustomization. Their manual Argo
+Applications and timing contract are documented in
+[`accounts/staging/benchmarks/v1-scale/README.md`](accounts/staging/benchmarks/v1-scale/README.md).
+The former `poc-tenant-dev` composition remains under `examples/retired/` for
+compatibility comparison. The Magnum credential never belongs here.
 
 ## Rules
 
@@ -42,7 +50,9 @@ belongs here.
 - Removing manifests is the Git retirement gate but does not itself delete
   them because Argo pruning is disabled. Merge the removal, wait for Argo
   `Synced`, then use bootstrap's ownership-gated destroy-spoke operation.
-- Render every environment and run bootstrap `make validate` before merging.
+- Render every owner root and run bootstrap `make validate` before merging.
+- Benchmark tuples remain reconciled after a run; removal or cleanup requires a
+  separate ownership-gated retirement approval.
 
 See [`examples/README.md`](examples/README.md) for the composition matrix and
 exact add/remove semantics.

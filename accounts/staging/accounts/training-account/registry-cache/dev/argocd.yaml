@@ -1,0 +1,9 @@
+apiVersion: apps.csoc.js2.org/v1alpha1
+kind: SpokeArgoCD
+metadata:
+  name: training-account-registry-cache-dev
+  namespace: spokeclusters-training-account-registry-cache-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  clusterName: training-account-registry-cache-dev

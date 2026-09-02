@@ -1,0 +1,15 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeEnvironmentConfig
+metadata:
+  name: scale-02-kubernetes-dev
+  namespace: spokeclusters-scale-02-kubernetes-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  environment: dev
+  nodeCIDR: 10.22.0.0/24
+  podCIDR: 192.168.0.0/16
+  serviceCIDR: 10.96.0.0/12
+  networkMTU: 1500
+  enableDHCP: true
+  portSecurityEnabled: true

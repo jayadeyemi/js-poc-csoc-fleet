@@ -1,0 +1,12 @@
+apiVersion: csoc.js2.org/v1alpha1
+kind: SpokeIdentity
+metadata:
+  name: training-account-monitoring-dev
+  labels:
+    csoc.js2.org/account: training-account
+    csoc.js2.org/app: monitoring
+    csoc.js2.org/environment: dev
+    csoc.js2.org/owner: staging
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec: {}

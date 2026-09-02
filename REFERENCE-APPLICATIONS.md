@@ -5,7 +5,7 @@ cluster roots. Applications extracted from them are deployed to the spoke API,
 never to a CSOC management cluster.
 
 The first accepted instance is the minimal `test-poc/hello-app/dev` manifest in
-`environments/staging`. It uses one application replica and the smallest spoke
+`accounts/staging`. It uses one application replica and the smallest spoke
 worker bounds currently supported by the graph. It is the compatibility harness
 for direct delivery, interruption, repeat reconciliation, and bounded scaling.
 
@@ -21,3 +21,7 @@ For each larger reference application:
    readiness from actual workload and storage conditions.
 5. Test install, repeat, interruption, upgrade, rollback, PVC reattachment, and
    removal-with-retention before assigning a staging tuple.
+
+The deployable GitOps leaf must mirror the fleet order exactly:
+`argo/accounts/<owner>/accounts/<account>/<app>/<environment>`. A leaf contains
+one project and one workload Application; application types never share a spoke.
