@@ -16,15 +16,17 @@ catalog. Nothing under `examples/` is included by the fleet root.
 
 ## Add a composition
 
-1. Copy one composition to `accounts/<new-identity>/`.
+1. Copy one composition to
+   `accounts/<owner>/accounts/<account>/<app>/<environment>/`.
 2. Replace every example identity, namespace, resource name, CIDR, project ID,
    image ID, public key, access CIDR, and imported resource UUID.
 3. Create the restricted runtime credential outside Git and load it with the
    bootstrap credential helper.
 4. Keep exactly one network graph instance. Every `SpokeCluster` needs the
    `<cluster>-connection` ConfigMap produced by that graph.
-5. Add `<new-identity>` to `accounts/kustomization.yaml`; Argo then reconciles
-   the graph instances in sync-wave order.
+5. Add the tuple path to `accounts/<owner>/kustomization.yaml`; Argo then
+   reconciles the graph instances in sync-wave order. Never add anything below
+   `accounts/exclude` to an owner Kustomization.
 
 ## Add or remove one graph instance
 
@@ -45,11 +47,12 @@ in-place topology adoption.
 
 ## Remove a cluster
 
-Removing an account from `accounts/kustomization.yaml` is the Git retirement
-signal, not the deletion operation. Fleet Argo pruning is intentionally off.
-Merge the removal, wait for `csoc-fleet` to report Synced at that revision, and
-run bootstrap's exact-name, exact-ownership `destroy-spoke` operation. It
-removes workload resources first, CAPI second, and KRO/ORC network owners last.
+Removing a tuple from `accounts/<owner>/kustomization.yaml` is the Git
+retirement signal, not the deletion operation. Fleet Argo pruning is
+intentionally off. Merge the removal, wait for `csoc-fleet` to report Synced at
+that revision, and run bootstrap's exact-name, exact-ownership `destroy-spoke`
+operation. It removes workload resources first, CAPI second, and KRO/ORC
+network owners last.
 
 See each composition README for its resource chain and topology-specific
 activation and removal notes.

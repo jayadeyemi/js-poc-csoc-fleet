@@ -25,54 +25,54 @@ assignments:
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-00/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-00/kubernetes/dev
   - account: scale-01
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-01/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-01/kubernetes/dev
   - account: scale-02
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-02/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-02/kubernetes/dev
   - account: scale-03
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-03/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-03/kubernetes/dev
   - account: scale-04
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-04/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-04/kubernetes/dev
   - account: scale-05
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-05/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-05/kubernetes/dev
   - account: scale-06
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-06/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-06/kubernetes/dev
   - account: scale-07
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-07/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-07/kubernetes/dev
   - account: scale-08
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-08/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-08/kubernetes/dev
   - account: scale-09
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-09/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-09/kubernetes/dev
   - account: scale-10
     app: kubernetes
     environment: dev
     owner: staging
-    path: accounts/staging/accounts/scale-10/kubernetes/dev
+    path: accounts/exclude/staging/v1-scale/accounts/scale-10/kubernetes/dev

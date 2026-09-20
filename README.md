@@ -11,10 +11,10 @@ accounts/
   dev/                      always empty; graph development creates no instances
   staging/accounts/<account>/<app>/<environment>/
                              staging-owned dev instances
-  staging/benchmarks/v1-scale/
-                             manual 1-versus-10 benchmark inventory and guide
   prod/accounts/<account>/<app>/<environment>/
                              prod and explicitly routed dev instances
+  exclude/                  fail-closed tree ignored by environment Applications
+    staging/v1-scale/       complete retired scale benchmark examples
 examples/
   compositions/            complete topology and storage choices
   connections/             central and spoke-local GitOps delivery modes
@@ -26,10 +26,12 @@ The compatibility tuple is `test-poc/hello-app/dev`. The reference application
 types are `training-account/jupyterhub/dev`,
 `training-account/registry-cache/dev`, and `training-account/monitoring/dev`.
 Each is staging-owned, uses its canonical tuple name, and owns a distinct spoke.
-The `scale-00..10/kubernetes/dev` tuples are also staging-owned but are
-excluded from the ordinary staging Kustomization. Their manual Argo
-Applications and timing contract are documented in
-[`accounts/staging/benchmarks/v1-scale/README.md`](accounts/staging/benchmarks/v1-scale/README.md).
+The `scale-00..10/kubernetes/dev` tuples remain reserved to staging, but their
+complete manifests and benchmark inventory are parked under
+[`accounts/exclude/staging/v1-scale/`](accounts/exclude/staging/v1-scale/README.md).
+The staging fleet Application cannot discover that sibling tree. Empty
+Kustomizations remain at the former manual Application source paths so an Argo
+refresh observes zero desired instances without a source-generation error.
 The former `poc-tenant-dev` composition remains under `examples/retired/` for
 compatibility comparison. The Magnum credential never belongs here.
 
@@ -51,8 +53,10 @@ compatibility comparison. The Magnum credential never belongs here.
   them because Argo pruning is disabled. Merge the removal, wait for Argo
   `Synced`, then use bootstrap's ownership-gated destroy-spoke operation.
 - Render every owner root and run bootstrap `make validate` before merging.
-- Benchmark tuples remain reconciled after a run; removal or cleanup requires a
-  separate ownership-gated retirement approval.
+- Files below `accounts/exclude` must never appear in an environment
+  Kustomization or an active Argo source path.
+- Excluding a benchmark tuple does not retire its live infrastructure; removal
+  still requires a separate ownership-gated retirement approval.
 
 See [`examples/README.md`](examples/README.md) for the composition matrix and
 exact add/remove semantics.

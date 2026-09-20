@@ -1,32 +1,12 @@
-# Staging v1 scale benchmark
+# Retired staging v1 scale source paths
 
-This inventory measures real OpenStack convergence for one v1 `SpokeCluster`
-and then ten independently owned v1 spokes enqueued together. The ordinary
-`accounts/staging/kustomization.yaml` deliberately excludes every
-`scale-*` tuple. Each tuple is reached only through its manual
-`csoc-v1-scale-NN` Argo Application.
+The complete `scale-00` through `scale-10` examples moved to
+`accounts/exclude/staging/v1-scale/accounts/`. The manual Argo Applications
+still target their original paths during the retirement transition. Each
+original path contains an empty Kustomization, so Argo can compare it without
+rendering desired graph instances.
 
-Every account uses a different restricted 90-day application credential in the
-same project. This exercises namespace and credential-cache isolation without
-claiming real OpenStack project separation.
-
-Run from the staging management container after controller/RGD acceptance and
-credential loading:
-
-```bash
-bash scripts/operations/benchmarks/run-v1-scale.sh --phase single
-bash scripts/operations/benchmarks/run-v1-scale.sh --phase batch
-```
-
-The runner records T0 immediately before the Argo sync request. Its primary
-completion point requires the expected Nova servers, Neutron networks/subnets,
-Octavia load balancers, and Cinder roots to be ready; Kubernetes and KRO
-readiness are recorded separately. Evidence is written beneath ignored
-`.state/benchmarks/v1-scale/<timestamp>-<phase>/`.
-
-Before T0 it runs the read-only credential, ownership, collision, CIDR, and
-quota gate. After convergence it compares exact before/after IDs and rejects
-any unexplained server, network, subnet, load-balancer, volume, or deletion.
-
-A timeout captures diagnostics and exits without deleting or resubmitting
-anything. All eleven spokes remain staging-owned after a successful run.
+Because those Applications do not enable pruning, a refresh or sync reports
+the live graph instances as extraneous but does not delete them or their
+OpenStack infrastructure. Remove the live Applications and infrastructure only
+through the separately approved retirement workflow.
