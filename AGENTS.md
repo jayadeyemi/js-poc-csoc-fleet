@@ -6,10 +6,11 @@
 - Active instances use `accounts/<account>/<app>/<environment>` below their
   owner root and canonical name `<account>-<app>-<environment>`.
 - Every tuple appears exactly once in `ownership.yaml`. Staging owns its
-  ordinary dev tuples and the manual `scale-00..10/kubernetes/dev` benchmark;
-  prod owns production and explicitly routed dev tuples.
-- Benchmark tuple directories stay outside the ordinary staging Kustomization
-  and are reconciled only by their manual, phase-labeled Argo Applications.
+  ordinary dev tuples and reserves the excluded `scale-00..10/kubernetes/dev`
+  benchmark; prod owns production and explicitly routed dev tuples.
+- Complete but inactive fleet instances live only below `accounts/exclude`.
+  Environment Kustomizations and active Argo source paths must not reference
+  that tree.
 - Tuple labels, identity name, namespace, cluster name, and app reference must
   agree. A duplicate tuple or name is a validation failure.
 - Argo pruning stays disabled for infrastructure. Removing Git does not delete
@@ -23,27 +24,32 @@ This repository is the authoritative inventory of KRO graph instances.
 csoc/
   hello-app.yaml          CSOC-local direct workload instance
 accounts/
-  kustomization.yaml
-  <identity>/
+  <owner>/
+    kustomization.yaml
+    accounts/<account>/<app>/<environment>/
     identity-config.yaml  ImmutableSpokeConfig
     identity.yaml         SpokeIdentity
     spoke-config.yaml     SpokeEnvironmentConfig
     network.yaml          network graph instance
     cluster.yaml          SpokeCluster
-    hello-app.yaml        direct CAPI addon workload instance
+    hello-app.yaml        optional direct CAPI addon workload instance
     kustomization.yaml
+  exclude/                complete inactive examples; fail-closed root
 ```
 
-No spoke account is currently active. The retired `poc-tenant-dev` composition
-is preserved under `examples/retired/`, and reusable complete variants live
-under `examples/compositions/`. The production CSOC omits its fleet
-Application, so it cannot render these instances. The CSOC Magnum credential
-does not belong here.
+Staging currently renders the ordinary tuples explicitly listed in
+`accounts/staging/kustomization.yaml`. The scale benchmark is excluded from
+desired state, the retired `poc-tenant-dev` composition is preserved under
+`examples/retired/`, and reusable variants live under
+`examples/compositions/`. The CSOC Magnum credential does not belong here.
 
 ## Rules
 
 - Every spoke account uses `SpokeIdentity`, never `CSOCIdentity`.
-- Keep all instances for an account together under `accounts/<identity>`.
+- Keep active instances under
+  `accounts/<owner>/accounts/<account>/<app>/<environment>`.
+- Keep inactive instance examples under `accounts/exclude`; never add that
+  directory to an environment Kustomization.
 - Credentials, secret names, and application-credential values never enter Git.
 - Reviewed OpenStack project/provider IDs belong only in
   `identity-config.yaml`; consuming network and cluster instances cannot

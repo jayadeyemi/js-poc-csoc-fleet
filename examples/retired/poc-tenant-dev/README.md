@@ -10,10 +10,10 @@ one control plane and `1..2` workers, and a CSOC-managed Hello workload delivere
 through a `ClusterResourceSet`.
 
 To reuse it, first change every identity, namespace, cluster name, CIDR, public
-key, access CIDR, and reviewed OpenStack UUID. Copy the reviewed directory under
-`accounts/<identity>/`, then add that directory to `accounts/kustomization.yaml`.
-Never reactivate this exact identity or adopt any retained OpenStack object by
-name.
+key, access CIDR, and reviewed OpenStack UUID. Copy the reviewed directory to
+`accounts/<owner>/accounts/<account>/<app>/<environment>/`, then list that tuple
+in `accounts/<owner>/kustomization.yaml`. Never reactivate this exact identity
+or adopt any retained OpenStack object by name.
 
 Removing an active composition from Git does not delete it because fleet Argo
 pruning is disabled. After the removal is merged and `csoc-fleet` is Synced to

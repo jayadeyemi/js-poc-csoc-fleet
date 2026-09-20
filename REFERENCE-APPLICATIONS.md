@@ -4,10 +4,11 @@ The `references/config` and `references/gitops` forks are design inputs, not
 cluster roots. Applications extracted from them are deployed to the spoke API,
 never to a CSOC management cluster.
 
-The first accepted instance is the minimal `test-poc/hello-app/dev` manifest in
-`accounts/staging`. It uses one application replica and the smallest spoke
-worker bounds currently supported by the graph. It is the compatibility harness
-for direct delivery, interruption, repeat reconciliation, and bounded scaling.
+The first accepted instance is the minimal `test-poc/hello-app/dev` package at
+`accounts/staging/accounts/test-poc/hello-app/dev`. It uses one application
+replica and the smallest spoke worker bounds currently supported by the graph.
+It is the compatibility harness for direct delivery, interruption, repeat
+reconciliation, and bounded scaling.
 
 For each larger reference application:
 

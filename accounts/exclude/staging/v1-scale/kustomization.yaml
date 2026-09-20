@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - accounts/scale-00/kubernetes/dev
+  - accounts/scale-01/kubernetes/dev
+  - accounts/scale-02/kubernetes/dev
+  - accounts/scale-03/kubernetes/dev
+  - accounts/scale-04/kubernetes/dev
+  - accounts/scale-05/kubernetes/dev
+  - accounts/scale-06/kubernetes/dev
+  - accounts/scale-07/kubernetes/dev
+  - accounts/scale-08/kubernetes/dev
+  - accounts/scale-09/kubernetes/dev
+  - accounts/scale-10/kubernetes/dev
+

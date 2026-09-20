@@ -7,9 +7,10 @@ and publishes the connection consumed by `SpokeCluster`. The cluster still
 installs Cinder CSI and can dynamically provision PVCs; “without storage” means
 there is no independent `SpokeVolume` graph instance.
 
-Add it by copying this directory to `accounts/<identity>`, replacing every
-`example-dedicated` value and reviewed identifier, and listing the directory in
-`accounts/kustomization.yaml`. Add a `SpokeVolume` later as a separate file.
+Add it by copying this directory to
+`accounts/<owner>/accounts/<account>/<app>/<environment>`, replacing every
+`example-dedicated` value and reviewed identifier, and listing the tuple in
+`accounts/<owner>/kustomization.yaml`. Add a `SpokeVolume` later as a separate file.
 Remove the volume independently; remove the cluster only through the retirement
 sequence in `examples/README.md`. Never remove the network graph while CAPI
 machines or load balancers still use it.
